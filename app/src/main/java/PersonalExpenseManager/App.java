@@ -3,12 +3,68 @@
  */
 package PersonalExpenseManager;
 
-public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Date;
+import java.util.Scanner;
 
+public class App {
+    /*
+
+    1. enter an expense
+
+        a. Enter expense type
+        b. Enter Date
+        c. Enter amount
+
+    2. Show expense
+
+    3. Quit application
+
+     */
+    static Scanner scanner = new Scanner(System.in) ;
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+
+       int choice = 0;
+
+        do {
+            System.out.println("Option 1: Enter an expense");
+            System.out.println("Option 2: Show expense");
+            System.out.println("Option 3: Quit application");
+            System.out.print("Enter your Choice: ");
+
+
+            choice = Integer.parseInt(scanner.nextLine());
+
+            if (choice == 1){
+
+                enterExpense();
+
+            }
+            if(choice == 2){
+                showExpenses();
+            }
+
+        }
+        while(choice != 3);
+
+
+    }
+    public static void enterExpense() {
+
+        System.out.print("Enter expense type: ");
+        String expenseType = scanner.nextLine();
+
+        System.out.print("Enter Date: ");
+        LocalDate dateOfPurchase = LocalDate.parse(scanner.nextLine());
+
+        System.out.print("Enter Amount: ");
+        Double amount = Double.parseDouble(scanner.nextLine());
+
+    }
+    public static void showExpenses(){
+        System.out.println("Showing Expenses: ");
+
     }
 }
