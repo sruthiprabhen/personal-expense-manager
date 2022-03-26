@@ -3,10 +3,13 @@
  */
 package PersonalExpenseManager;
 
+import jdk.swing.interop.SwingInterOpUtils;
+
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.List;
 import java.util.Scanner;
 
 public class App {
@@ -25,6 +28,8 @@ public class App {
      */
     static Scanner scanner = new Scanner(System.in) ;
     public static void main(String[] args) {
+
+        ExpenseDataRepository.createTable();
 
        int choice = 0;
 
@@ -49,7 +54,6 @@ public class App {
         }
         while(choice != 3);
 
-
     }
     public static void enterExpense() {
 
@@ -62,9 +66,22 @@ public class App {
         System.out.print("Enter Amount: ");
         Double amount = Double.parseDouble(scanner.nextLine());
 
+        ExpenseData expenseData = new ExpenseData(expenseType,dateOfPurchase,amount);
+        ExpenseDataRepository expenseDataRepository = new ExpenseDataRepository();
+        ExpenseData result = expenseDataRepository.create(expenseData);
+        System.out.println("result = " + result.getDate());
+
+
     }
     public static void showExpenses(){
         System.out.println("Showing Expenses: ");
+        ExpenseDataRepository expenseDataRepository = new ExpenseDataRepository();
+        List<ExpenseData> allData = expenseDataRepository.getExpenseData();
+        Double total = 0.0;
+        for(int i = 0; i<allData.size();i++){
+            total += allData.get(i).getAmount();
+        }
 
+        System.out.println("total = " + total);
     }
 }
