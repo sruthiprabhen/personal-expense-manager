@@ -7,6 +7,8 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Scanner;
 
+// user put
+
 public class App {
     /*
 
@@ -22,9 +24,10 @@ public class App {
 
      */
     static Scanner scanner = new Scanner(System.in) ;
+
     public static void main(String[] args) {
 
-        ExpenseDataRepository.createTable();
+        ExpenseDataRepository.createTable(); // creating table when the application starts.
 
        int choice = 0;
 

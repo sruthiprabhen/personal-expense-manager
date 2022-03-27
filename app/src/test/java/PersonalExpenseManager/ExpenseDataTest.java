@@ -6,6 +6,8 @@ import java.time.LocalDate;
 
 import static org.junit.Assert.assertEquals;
 
+// Testing Class ExpenseData.
+
 public class ExpenseDataTest {
 
     String expenseType = "HBO";
