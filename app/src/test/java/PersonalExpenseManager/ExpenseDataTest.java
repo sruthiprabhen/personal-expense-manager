@@ -14,7 +14,6 @@ public class ExpenseDataTest {
 
     ExpenseData expenseData = new ExpenseData(expenseType, expenseDate, amount);
 
-
     @Test
     public void shouldReturnAmount() {
 
@@ -25,7 +24,6 @@ public class ExpenseDataTest {
     public void shouldReturnDate() {
 
         assertEquals(expenseDate, expenseData.getDate());
-
     }
 
     @Test

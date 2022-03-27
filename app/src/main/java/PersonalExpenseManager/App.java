@@ -64,8 +64,6 @@ public class App {
         ExpenseData expenseData = new ExpenseData(expenseType,dateOfPurchase,amount);
         ExpenseDataRepository expenseDataRepository = new ExpenseDataRepository();
         ExpenseData result = expenseDataRepository.create(expenseData);
-        System.out.println("result = " + result.getDate());
-
 
     }
     public static void showExpenses(){

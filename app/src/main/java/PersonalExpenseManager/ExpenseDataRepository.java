@@ -36,22 +36,21 @@ public class ExpenseDataRepository {
         try { // try catch exception handling
             con = DriverManager.getConnection(CONNECTION_STRING_FILE); //Fixing Connection to a database file
 
-            //Om vi lägger till Statement.RETURN_GENERATED_KEYS så kommer vi att kunna hämta de värden som autogenererats efter att vi kört frågan.
             var stmt = con.prepareStatement("INSERT INTO EXPENSEDATA(EXPENSETYPE,EXPENSEDATE, AMOUNT) VALUES(?,?,?)", Statement.RETURN_GENERATED_KEYS);
             stmt.setString(1, expenseData.getExpenseType());
             stmt.setDate(2, Date.valueOf(expenseData.getDate()));
             stmt.setDouble(3, expenseData.getAmount());
 
-            //Ersätt frågetecken 1 med Holder i Account!
-            stmt.execute();//Kör frågan.
-            var rs = stmt.getGeneratedKeys();//Hämta det ID som genererats i databasen.
-            if(rs.next()){//Om vi har en rad i resultatet, så gå till den raden.
-                int expenseId = rs.getInt(1);//Hämta värdet i den första kolumnen i den första raden.
-                expenseData.setId(expenseId);//Lägg indexet i våran account
+            //
+            stmt.execute();
+            var rs = stmt.getGeneratedKeys();//get Id which is gernerated in the database
+            if(rs.next()){
+                int expenseId = rs.getInt(1);
+                expenseData.setId(expenseId);
             }
-        } catch (SQLException e) {//Oj det gick fel
+        } catch (SQLException e) {
             e.printStackTrace();
-        } finally {//Oavsett om det gick rätt eller fel, hamnar vi här.
+        } finally {
             try {
                 con.close();
             }catch(Exception ignore){}
@@ -83,9 +82,9 @@ public class ExpenseDataRepository {
 
                 allData.add(new ExpenseData(expenseType, expenseDate, amount));
             }
-        } catch (SQLException e) {//Oj det gick fel
+        } catch (SQLException e) {
             e.printStackTrace();
-        } finally {//Oavsett om det gick rätt eller fel, hamnar vi här.
+        } finally {
             try {
                 con.close();
             }catch(Exception ignore){}
