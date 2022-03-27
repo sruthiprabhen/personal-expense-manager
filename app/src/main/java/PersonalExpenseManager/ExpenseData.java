@@ -13,10 +13,10 @@ public class ExpenseData {
         this.id = id;
     }
 
-    Integer id;
-    String expenseType;
-    LocalDate expenseDate;
-    Double amount;
+    private Integer id;
+    private String expenseType;
+    private LocalDate expenseDate;
+    private Double amount;
 
     public ExpenseData(String expenseType, LocalDate date, Double amount) {
         this.amount = amount;
