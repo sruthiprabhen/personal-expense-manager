@@ -3,12 +3,7 @@
  */
 package PersonalExpenseManager;
 
-import jdk.swing.interop.SwingInterOpUtils;
-
-import java.time.Instant;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
@@ -35,7 +30,7 @@ public class App {
 
         do {
             System.out.println("Option 1: Enter an expense");
-            System.out.println("Option 2: Show expense");
+            System.out.println("Option 2: Show total expense");
             System.out.println("Option 3: Quit application");
             System.out.print("Enter your Choice: ");
 
