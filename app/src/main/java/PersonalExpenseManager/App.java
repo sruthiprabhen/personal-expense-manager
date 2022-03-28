@@ -42,34 +42,36 @@ public class App {
 
             if (choice == 1){
 
-                enterExpense();
+                System.out.print("Enter expense type: ");
+                String expenseType = scanner.nextLine();
+
+                System.out.print("Enter Date: ");
+                LocalDate dateOfPurchase = LocalDate.parse(scanner.nextLine());
+
+                System.out.print("Enter Amount: ");
+                Double amount = Double.parseDouble(scanner.nextLine());
+
+                enterExpense(expenseType,dateOfPurchase,amount);
 
             }
             if(choice == 2){
-                showExpenses();
+                Double total = showExpenses();
+                System.out.print("Your total expense is " + total);
             }
 
         }
         while(choice != 3);
 
     }
-    public static void enterExpense() {
-
-        System.out.print("Enter expense type: ");
-        String expenseType = scanner.nextLine();
-
-        System.out.print("Enter Date: ");
-        LocalDate dateOfPurchase = LocalDate.parse(scanner.nextLine());
-
-        System.out.print("Enter Amount: ");
-        Double amount = Double.parseDouble(scanner.nextLine());
+    public static ExpenseData enterExpense(String expenseType, LocalDate dateOfPurchase, Double amount) {
 
         ExpenseData expenseData = new ExpenseData(expenseType,dateOfPurchase,amount);
         ExpenseDataRepository expenseDataRepository = new ExpenseDataRepository();
         ExpenseData result = expenseDataRepository.create(expenseData);
+        return result;
 
     }
-    public static void showExpenses(){
+    public static Double showExpenses(){
         System.out.println("Showing Expenses: ");
         ExpenseDataRepository expenseDataRepository = new ExpenseDataRepository();
         List<ExpenseData> allData = expenseDataRepository.getExpenseData();
@@ -78,6 +80,6 @@ public class App {
             total += allData.get(i).getAmount();
         }
 
-        System.out.println("total = " + total);
+        return total;
     }
 }
