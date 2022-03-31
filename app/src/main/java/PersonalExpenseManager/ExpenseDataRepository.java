@@ -5,6 +5,19 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+// Java Data Base Connectivity
+
+    /*
+   Steps
+   1. Import ...java.sql
+   2. Load and Register the Driver
+   3. Create Connection
+   4. Create a statement
+   5. Execute the Query
+   6. Process the results
+   7. Close
+   */
+
 public class ExpenseDataRepository {
 
     private static final String CREATE_TABLE_SQL = "CREATE TABLE EXPENSEDATA( ID BIGINT AUTO_INCREMENT,EXPENSETYPE VARCHAR(255), EXPENSEDATE DATE,AMOUNT DOUBLE PRECISION)";

@@ -56,7 +56,8 @@ public class App {
             }
             if(choice == 2){
                 Double total = showExpenses();
-                System.out.print("Your total expense is " + total);
+                System.out.println("Showing Expenses: ");
+                System.out.println("Your total expense is " + total);
             }
 
         }
@@ -72,7 +73,7 @@ public class App {
 
     }
     public static Double showExpenses(){
-        System.out.println("Showing Expenses: ");
+
         ExpenseDataRepository expenseDataRepository = new ExpenseDataRepository();
         List<ExpenseData> allData = expenseDataRepository.getExpenseData();
         Double total = 0.0;

@@ -36,7 +36,7 @@ public class ExpenseDataRepositoryTest {
 
     }
 
-    // Regquirement 2: Should be able to fetch all data from database
+    // Requirement 2: Should be able to fetch all data from database
 
     @Test
     public void shouldBeAbleToRetrieveAllData(){

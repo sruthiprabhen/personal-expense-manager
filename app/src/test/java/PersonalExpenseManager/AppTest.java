@@ -25,7 +25,7 @@ public class AppTest {
         Integer expectedId = 1;
 
         ExpenseData expenseData = App.enterExpense(dataType,date,amount);
-        assertEquals(expectedId, expenseData.getId());
+        assertEquals("Should save expensedata",expectedId, expenseData.getId());
     }
     @Test
     public void shouldBeAbleToShowExpense() {
@@ -37,6 +37,6 @@ public class AppTest {
 
         ExpenseData expenseData = App.enterExpense(dataType,date,amount);
         Double total = App.showExpenses();
-        assertEquals(amount,total);
+        assertEquals("Total amount should be correct",amount,total);
     }
 }
